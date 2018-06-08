@@ -1,0 +1,25 @@
+<div class='container-fluid'>
+  <h3 class='pt-4'>Editing stock</h3>
+  <div class='row'>
+
+    <div class='col-md-3'>
+      <div class='list-group'>
+        <%= link_to stocks_path, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :list) %> Stock index
+        <% end %>
+        <%= link_to @stock, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :eye) %> Show
+        <% end %>
+        <%= link_to @stock, data: {confirm: 'Are you sure?'},
+              method: :delete, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+          <%= icon(:fas, :trash) %> Delete
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col-md-9'>
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</div>

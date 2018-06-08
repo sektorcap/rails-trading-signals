@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stocks
   get 'home/test10'
   get 'home/test9'
   get 'home/test8'

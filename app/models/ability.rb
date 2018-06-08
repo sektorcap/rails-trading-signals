@@ -35,6 +35,9 @@ class Ability
     end
     if user.is?(:admin)
       can :read, Log
+      can :manage, Stock
     end
+
+    can :read, Stock
   end
 end
