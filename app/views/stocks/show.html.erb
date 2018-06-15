@@ -1,39 +1,39 @@
 <div class='container-fluid'>
-  <h3 class='pt-4'>Show stock</h3>
+  <h3 class='pt-4'>Mostra Azione</h3>
   <div class='row'>
 
     <div class='col-md-3'>
       <div class='list-group'>
         <%= link_to stocks_path, class: 'list-group-item list-group-item-action' do %>
-          <%= icon(:fas, :list) %> Stock index
+          <%= icon(:fas, :list) %> Lista Azioni
         <% end %>
         <%= link_to edit_stock_path(@stock), class: 'list-group-item list-group-item-action' do %>
-          <%= icon(:fas, :wrench) %> Edit
+          <%= icon(:fas, :wrench) %> Modifica Azione
         <% end %>
         <%= link_to new_stock_path, class: 'list-group-item list-group-item-action' do %>
-          <%= icon(:fas, :plus) %> New stock
+          <%= icon(:fas, :plus) %> Nuova Azione
         <% end %>
       </div>
     </div>
 
     <div class='col-md-9'>
       <div class='card'>
-        <div class='card-header'>Details</div>
+        <div class='card-header'>Dettagli</div>
         <ul class='list-group list-group-flush'>
           <li class='list-group-item'>
-            <span>Symbol: </span>
+            <span>Simbolo: </span>
             <strong><%= @stock.symbol %></strong>
           </li>
           <li class='list-group-item'>
-            <span>Name: </span>
+            <span>Nome: </span>
             <strong><%= @stock.name %></strong>
           </li>
           <li class='list-group-item'>
-            <span>Dividend: </span>
+            <span>Dividendo: </span>
             <strong><%= @stock.dividend %></strong>
           </li>
           <li class='list-group-item'>
-            <span>Market: </span>
+            <span>Mercato: </span>
             <strong><%= @stock.market %></strong>
           </li>
         </ul>

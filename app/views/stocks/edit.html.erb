@@ -5,14 +5,14 @@
     <div class='col-md-3'>
       <div class='list-group'>
         <%= link_to stocks_path, class: 'list-group-item list-group-item-action' do %>
-          <%= icon(:fas, :list) %> Stock index
+          <%= icon(:fas, :list) %> Lista Azioni
         <% end %>
         <%= link_to @stock, class: 'list-group-item list-group-item-action' do %>
-          <%= icon(:fas, :eye) %> Show
+          <%= icon(:fas, :eye) %> Mostra Azione
         <% end %>
         <%= link_to @stock, data: {confirm: 'Are you sure?'},
               method: :delete, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
-          <%= icon(:fas, :trash) %> Delete
+          <%= icon(:fas, :trash) %> Cancella Azione
         <% end %>
       </div>
     </div>

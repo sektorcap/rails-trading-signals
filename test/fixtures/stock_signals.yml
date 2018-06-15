@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quotation_date: 2018-06-11 14:29:16
+  quotation: 1.5
+  min_year: 1.5
+  max_year: 1.5
+  volatility: 1.5
+  dividend_yield: 1.5
+  description: MyString
+  details: MyString
+  suggestion: 1
+  level: 1
+  stock: one
+
+two:
+  quotation_date: 2018-06-11 14:29:16
+  quotation: 1.5
+  min_year: 1.5
+  max_year: 1.5
+  volatility: 1.5
+  dividend_yield: 1.5
+  description: MyString
+  details: MyString
+  suggestion: 1
+  level: 1
+  stock: two

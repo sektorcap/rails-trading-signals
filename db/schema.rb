@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_08_082258) do
+ActiveRecord::Schema.define(version: 2018_06_13_140011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,30 @@ ActiveRecord::Schema.define(version: 2018_06_08_082258) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stock_signal_checks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stock_signals", force: :cascade do |t|
+    t.datetime "quotation_date"
+    t.float "quotation"
+    t.float "min_year"
+    t.float "max_year"
+    t.float "volatility"
+    t.float "dividend_yield"
+    t.string "description"
+    t.string "details"
+    t.integer "suggestion"
+    t.integer "level"
+    t.bigint "stock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "stock_signal_check_id"
+    t.index ["stock_id"], name: "index_stock_signals_on_stock_id"
+    t.index ["stock_signal_check_id"], name: "index_stock_signals_on_stock_signal_check_id"
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -56,4 +80,6 @@ ActiveRecord::Schema.define(version: 2018_06_08_082258) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "stock_signals", "stock_signal_checks"
+  add_foreign_key "stock_signals", "stocks"
 end

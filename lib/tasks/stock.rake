@@ -1,4 +1,6 @@
 require 'yaml'
+require 'stocks_analyzer'
+include StocksAnalizer
 
 namespace :stock do
   desc "Load stocks from a yaml file"
@@ -18,4 +20,9 @@ namespace :stock do
     end
   end
 
+  desc "Looking for new signals"
+  task :check_signals => :environment do
+    r = StocksAnalizer.analyze
+    puts "Inserted #{r} signals"
+  end
 end
