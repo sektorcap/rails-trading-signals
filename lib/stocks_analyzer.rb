@@ -83,7 +83,7 @@ module StocksAnalizer
     max_entry = ts[0..280].max{|x,y| x[1].to_f <=> y[1].to_f}
     options[:max_entry] = max_entry
     if (ts[0][1].to_f >= max_entry[1].to_f*PERCENTAGE_MAX_THRESHOLD)
-      options[:message] = "Nei pressi del massimo dell'ultimo anno (#{max_entry})"
+      options[:message] = "Nei pressi del massimo dell'ultimo anno"
       options[:details] = max_entry
       options[:suggestion] = "sell"
       options[:level] = "high"

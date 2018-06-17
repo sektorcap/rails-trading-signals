@@ -1,5 +1,5 @@
 <div class='container-fluid'>
-  <h2 class='pt-4'>Segnali del <%= l @signals.first.stock_signal_check.updated_at, format: "%d-%m-%Y" %></h2>
+  <h2 class='pt-4'>Segnali del <%= l @signals.first.stock_signal_check.updated_at, format: "%d-%m-%Y %H:%M" %></h2>
   <hr>
   <div class='row'>
     <%= content_tag 'table', class: 'table table-striped datatable' do %>
