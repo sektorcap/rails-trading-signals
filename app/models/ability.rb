@@ -40,5 +40,6 @@ class Ability
 
     can :read, Stock
     can :read, StockSignal
+    can :read, StockSignalCheck
   end
 end
