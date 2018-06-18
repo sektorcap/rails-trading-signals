@@ -38,8 +38,10 @@ class Ability
       can :manage, Stock
     end
 
-    can :read, Stock
+    # can :read, Stock
     can :read, StockSignal
     can :read, StockSignalCheck
+    can :compact, StockSignal
+    can :full, StockSignal
   end
 end

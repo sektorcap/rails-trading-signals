@@ -13,9 +13,9 @@
       <tbody>
         <% @stock_signal_checks.each do |c| %>
           <tr>
-            <td><%= link_to c.id, stock_signals_path(id: c.id) %></td>
-            <td><%= link_to(l(c.created_at, format: "%d-%m-%Y %H:%M"), stock_signals_path(id: c.id)) %></td>
-            <td><%= link_to(l(c.updated_at, format: "%d-%m-%Y %H:%M"), stock_signals_path(id: c.id)) %></td>
+            <td><%= link_to c.id, stock_signals_path(check_id: c.id) %></td>
+            <td><%= link_to(l(c.created_at, format: "%d-%m-%Y %H:%M"), stock_signals_path(check_id: c.id)) %></td>
+            <td><%= link_to(l(c.updated_at, format: "%d-%m-%Y %H:%M"), stock_signals_path(check_id: c.id)) %></td>
           </tr>
         <% end -%>
       </tbody>
