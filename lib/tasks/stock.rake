@@ -23,6 +23,8 @@ namespace :stock do
   desc "Looking for new signals"
   task :check_signals => :environment do
     r = StocksAnalizer.analyze
-    puts "Inserted #{r} signals"
+    puts "Inserted #{r} signals."
+    StockSignalsMailer.daily_mail.deliver_now
+    puts "Mail inviata."
   end
 end

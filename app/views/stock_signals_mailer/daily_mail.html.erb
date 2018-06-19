@@ -1,0 +1,38 @@
+<%= content_tag :p, 'Ecco i segnali di oggi.'  %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Simbolo</th>
+      <th>Nome</th>
+      <th>Data quotazione</th>
+      <th>Quotazione chiusura</th>
+      <th>Min Anno</th>
+      <th>Max Anno</th>
+      <th>Volatilità</th>
+      <th>Dividendo</th>
+      <th>Rendimento netto</th>
+      <th>Segnale</th>
+      <th>Dettagli</th>
+      <th>Suggerimento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @signals.each do |s| %>
+      <tr>
+        <td><%= s.stock.symbol %></td>
+        <td><%= s.stock.name %></td>
+        <td><%= l s.quotation_date, format: "%d-%m-%Y" %></td>
+        <td><%= s.quotation %></td>
+        <td><%= s.min_year %></td>
+        <td><%= s.max_year %></td>
+        <td><%= number_to_percentage(s.volatility*100, precision: 2) %></td>
+        <td><%= s.stock.dividend %></td>
+        <td><%= number_to_percentage(s.dividend_yield*100, precision: 2) %></td>
+        <td><%= s.description %></td>
+        <td><%= s.details %></td>
+        <td><%= content_tag :p, "#{s.suggestion} #{s.level}", class: "suggestion #{s.suggestion}-#{s.level}"  %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
