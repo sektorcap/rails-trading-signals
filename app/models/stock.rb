@@ -1,5 +1,5 @@
 class Stock < ApplicationRecord
-  has_many :stock_signals
+  has_many :stock_signals, dependent: :destroy
   validates_presence_of :symbol
   validates_uniqueness_of :symbol
   validates_presence_of :name
