@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_13_140011) do
+ActiveRecord::Schema.define(version: 2018_07_10_220330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 2018_06_13_140011) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "portfolio_items", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "stock_id"
+    t.float "avg_stock_value"
+    t.integer "quantity"
+    t.float "sell_stock_value"
+    t.string "notes"
+    t.boolean "closed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_portfolio_items_on_stock_id"
+    t.index ["user_id"], name: "index_portfolio_items_on_user_id"
   end
 
   create_table "stock_signal_checks", force: :cascade do |t|
@@ -54,6 +68,9 @@ ActiveRecord::Schema.define(version: 2018_06_13_140011) do
     t.string "market"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "quotation_date"
+    t.datetime "quotation_check"
+    t.float "quotation"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_06_13_140011) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "portfolio_items", "stocks"
+  add_foreign_key "portfolio_items", "users"
   add_foreign_key "stock_signals", "stock_signal_checks"
   add_foreign_key "stock_signals", "stocks"
 end

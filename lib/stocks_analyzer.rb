@@ -15,6 +15,12 @@ module StocksAnalizer
 
         Rails.logger.info "#{stock.name} (#{stock.symbol}): #{close[0]}"
 
+        # update stock quotation
+        stock.quotation = close[0][1].to_f
+        stock.quotation_date = DateTime.parse(close[0][0])
+        stock.quotation_check = t
+        stock.save
+
         ["signal_5_down", "one_year_min", "one_year_max"].each do |m|
           r, options = send(m, close)
           next unless r

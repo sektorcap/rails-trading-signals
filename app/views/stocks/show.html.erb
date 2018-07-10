@@ -29,6 +29,18 @@
             <strong><%= @stock.name %></strong>
           </li>
           <li class='list-group-item'>
+            <span>Quotazione: </span>
+            <strong><%= @stock.quotation %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Data quotazione: </span>
+            <strong><%= l @stock.quotation_date, format: "%d-%m-%Y" unless @stock.quotation_date.nil? %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Data check: </span>
+            <strong><%= l @stock.quotation_check, format: "%d-%m-%Y %H:%M" unless @stock.quotation_check.nil? %></strong>
+          </li>
+          <li class='list-group-item'>
             <span>Dividendo: </span>
             <strong><%= @stock.dividend %></strong>
           </li>

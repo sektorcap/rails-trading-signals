@@ -7,6 +7,9 @@
         <tr>
           <th>Simbolo</th>
           <th>Nome</th>
+          <th>Quotazione</th>
+          <th>Data quotazione</th>
+          <th>Data check</th>
           <th>Dividendo</th>
           <th>Mercato</th>
         </tr>
@@ -16,6 +19,9 @@
           <tr>
             <td><%= link_to stock.symbol, stock %></td>
             <td><%= link_to stock.name, stock %></td>
+            <td><%= stock.quotation %></td>
+            <td><%= l stock.quotation_date, format: "%d-%m-%Y" unless stock.quotation_date.nil? %></td>
+            <td><%= l stock.quotation_check, format: "%d-%m-%Y %H:%M" unless stock.quotation_check.nil? %></td>
             <td><%= stock.dividend %></td>
             <td><%= stock.market %></td>
           </tr>
