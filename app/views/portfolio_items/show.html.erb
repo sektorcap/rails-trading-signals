@@ -1,0 +1,56 @@
+<div class='container-fluid'>
+  <h3 class='pt-4'>Posizione</h3>
+  <div class='row'>
+
+    <div class='col-md-3'>
+      <div class='list-group'>
+        <%= link_to portfolio_items_path, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :list) %> Portfolio
+        <% end %>
+        <%= link_to edit_portfolio_item_path(@portfolio_item), class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :wrench) %> Modifica posizione
+        <% end %>
+        <%= link_to new_portfolio_item_path, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :plus) %> Nuova posizione
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col-md-9'>
+      <div class='card'>
+        <div class='card-header'>Dettagli</div>
+        <ul class='list-group list-group-flush'>
+          <li class='list-group-item'>
+            <span>Azione: </span>
+            <strong><%= @portfolio_item.stock.name %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Prezzo di carico: </span>
+            <strong><%= number_with_precision(@portfolio_item.avg_stock_value, precision: 5, strip_insignificant_zeros: true) %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Quantità: </span>
+            <strong><%= @portfolio_item.quantity %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span><%= @portfolio_item.closed? ? "Prezzo di vendita:" : "Quotazione" %> </span>
+            <strong><%= number_with_precision(@portfolio_item.sell_stock_value, precision: 5, strip_insignificant_zeros: true) %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Profitto/Perdita: </span>
+            <strong><%= number_with_precision(@portfolio_item.profit_loss, precision: 2, strip_insignificant_zeros: true) %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Note: </span>
+            <strong><%= @portfolio_item.notes %></strong>
+          </li>
+          <li class='list-group-item'>
+            <span>Stato: </span>
+            <strong><%= @portfolio_item.closed_text %></strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

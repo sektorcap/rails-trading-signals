@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(@portfolio_item, layout: :horizontal, label_col: 'col-sm-2 col-form-label', control_col: 'col-sm-10') do |f| %>
+
+      <%= f.collection_select :stock_ids, Stock.order('symbol asc'), :id, :name, {label: 'Azione', include_hidden: false},
+        {multiple: true, class: 'select2'} %>
+
+      <%= f.number_field :avg_stock_value, label: "Prezzo di carico", step: 0.0001 %>
+      <%= f.number_field :quantity, label: "Quantità", step: 1 %>
+      <%= f.number_field :sell_stock_value, label: "Prezzo di vendita", step: 0.0001 %>
+      <%= f.text_area :notes, label: "Note" %>
+      <%= f.form_group :closed, label: { text: "Stato" } do %>
+        <%= f.check_box :closed do %>
+          Chiusa
+        <% end %>
+      <% end %>
+
+
+  <div class='form-group row'>
+    <div class='col-sm-2'></div>
+    <div class='col-sm-10'>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= back_link class: 'btn btn-default pull-right' %>
+    </div>
+  </div>
+
+<% end %>

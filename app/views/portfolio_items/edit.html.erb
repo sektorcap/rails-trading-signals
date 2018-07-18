@@ -1,0 +1,25 @@
+<div class='container-fluid'>
+  <h3 class='pt-4'>Modifica posizione</h3>
+  <div class='row'>
+
+    <div class='col-md-3'>
+      <div class='list-group'>
+        <%= link_to portfolio_items_path, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :list) %> Portfolio
+        <% end %>
+        <%= link_to @portfolio_item, class: 'list-group-item list-group-item-action' do %>
+          <%= icon(:fas, :eye) %> Mostra posizione
+        <% end %>
+        <%= link_to @portfolio_item, data: {confirm: 'Are you sure?'},
+              method: :delete, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+          <%= icon(:fas, :trash) %> Cancella posizione
+        <% end %>
+      </div>
+    </div>
+
+    <div class='col-md-9'>
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</div>

@@ -68,3 +68,4 @@ gem 'bootstrap_form', git: 'https://github.com/bootstrap-ruby/rails-bootstrap-fo
 gem 'config'
 gem 'alphavantagerb'
 gem 'mailgun-ruby'
+gem 'select2-rails'

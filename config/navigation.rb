@@ -56,6 +56,7 @@ SimpleNavigation::Configuration.run do |navigation|
     #
     primary.item :stocks, 'Azioni', stocks_path, link_html: { icon: 'chart-line' }
     primary.item :chekcs, 'Checks', stock_signal_checks_index_path, link_html: { icon: 'sync' }
+    primary.item :chekcs, 'Portfolio', portfolio_items_path, link_html: { icon: 'paw' }
     # primary.item :concerts, 'Link 2', home_test2_path, link_html: { icon: 'chart-line' }
     # primary.item :video, 'Link 3', home_test3_path, link_html: { icon: 'book' }
     # primary.item :info, 'Submenu', '#', link_html: { icon: 'hand-point-down' } do |info_nav|

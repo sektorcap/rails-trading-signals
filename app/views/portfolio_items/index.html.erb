@@ -1,0 +1,35 @@
+<div class='container-fluid'>
+  <h3 class='pt-4'>Portfolio</h3>
+  <div class='row'>
+    <%= content_tag 'table', id: "portfolio", class: 'table table-striped datatable' do %>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Azione</th>
+          <th>Prezzo di carico</th>
+          <th>Quantità</th>
+          <th>Quotazione/Prezzo di vendita</th>
+          <th>Profitto/Perdita</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @portfolio_items.each do |portfolio_item| %>
+          <tr>
+            <td><%= link_to portfolio_item.id, portfolio_item %></td>
+            <td><%= link_to portfolio_item.stock.name, portfolio_item.stock %></td>
+            <td><%= number_with_precision(portfolio_item.avg_stock_value, precision: 5, strip_insignificant_zeros: true) %></td>
+            <td><%= portfolio_item.quantity %></td>
+            <td><%= number_with_precision(portfolio_item.sell_stock_value, precision: 5, strip_insignificant_zeros: true) %></td>
+            <td><%= display_profit_loss(portfolio_item.profit_loss) %></td>
+            <td><%= portfolio_item.closed_text %></td>
+          </tr>
+        <% end -%>
+      </tbody>
+    <% end %>
+  </div>
+  <hr>
+  <%= link_to new_portfolio_item_path, class: 'btn btn-primary btn-lg' do %>
+    <%= icon(:fas, :plus) %> Nuova posizione
+  <% end %>
+</div>

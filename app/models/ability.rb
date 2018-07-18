@@ -38,10 +38,11 @@ class Ability
       can :manage, Stock
     end
 
-    # can :read, Stock
+    can :read, Stock
     can :read, StockSignal
     can :read, StockSignalCheck
     can :compact, StockSignal
     can :full, StockSignal
+    can :manage, PortfolioItem, user_id: user.id
   end
 end

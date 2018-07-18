@@ -14,4 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require chaltron
+//= require select2
 //= require_tree .

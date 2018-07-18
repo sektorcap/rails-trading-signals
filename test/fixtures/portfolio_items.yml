@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  stock: one
+  avg_stock_value: 1.5
+  quantity: 1
+  sell_stock_value: 1.5
+  profit_loss: 1.5
+  notes: MyString
+
+two:
+  user: two
+  stock: two
+  avg_stock_value: 1.5
+  quantity: 1
+  sell_stock_value: 1.5
+  profit_loss: 1.5
+  notes: MyString
