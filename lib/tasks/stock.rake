@@ -1,6 +1,8 @@
 require 'yaml'
 require 'stocks_analyzer'
+require 'stocks_quotation'
 include StocksAnalizer
+include StocksQuotation
 
 namespace :stock do
   desc "Load stocks from a yaml file"
@@ -26,5 +28,11 @@ namespace :stock do
     puts "Inserted #{r} signals."
     StockSignalsMailer.daily_mail.deliver_now
     puts "Mail inviata."
+  end
+
+  desc "Get quotations"
+  task :get_quotations => :environment do
+    r = StocksQuotation.get_quotations
+    puts "Updated #{r} stocks."
   end
 end
