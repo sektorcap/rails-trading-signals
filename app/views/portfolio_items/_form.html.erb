@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@portfolio_item, layout: :horizontal, label_col: 'col-sm-2 col-form-label', control_col: 'col-sm-10') do |f| %>
 
-      <%= f.collection_select :stock_ids, Stock.order('symbol asc'), :id, :name, {label: 'Azione', include_hidden: false},
-        {multiple: true, class: 'select2'} %>
+      <%= f.collection_select :stock_ids, Stock.order('symbol asc'), :id, :name,
+        {label: 'Azione', include_hidden: false}, {multiple: true, class: 'select2'} %>
 
       <%= f.number_field :avg_stock_value, label: "Prezzo di carico", step: 0.0001 %>
       <%= f.number_field :quantity, label: "Quantità", step: 1 %>
