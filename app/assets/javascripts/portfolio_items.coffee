@@ -15,7 +15,10 @@ $(document).on 'turbolinks:load', ->
       autoWidth: false
       responsive: true
       stateSave: true
-      aLengthMenu: [ 50, 100, 200, 500, 1000 ]
+      # iDisplayLength does not work and I don't know why: DataTable shows
+      # always 10
+      # aLengthMenu: [[10, 25, 50 100, -1], [10, 25, 50 100, "Tutte"]]
+      # iDisplayLength: -1
       dom: 'Bfrtlip'
       # dom: 'Blfrtip'
       # dom: "<'row'<'col-sm-12 col-md-6'B><'col-sm-12 col-md-2'l><'col-sm-12 col-md-4'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>"
