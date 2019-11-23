@@ -1,4 +1,4 @@
 alphavantage:
   verbose: false
-  waiting_time: 10
+  waiting_time: 60
   retry: 20
